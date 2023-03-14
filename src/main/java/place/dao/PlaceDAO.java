@@ -9,8 +9,8 @@ import place.dto.PlaceDTO;
 public interface PlaceDAO {
     public int countPlace();
     public List<PlaceDTO> list(PageDTO pv);
-    public void insertPlace(PlaceDTO dto);
-    
-    public void updatePlace(PlaceDTO dto);
-	public void deletePlace(int num);
+//    public void insertPlace(PlaceDTO dto);
+//    
+//    public void updatePlace(PlaceDTO dto);
+//	public void deletePlace(int placeNum);
 }

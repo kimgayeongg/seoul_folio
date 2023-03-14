@@ -8,39 +8,41 @@ import place.dto.PageDTO;
 import place.dto.PlaceDTO;
 
 public class PlaceDaoImp implements PlaceDAO{
-   private SqlSessionTemplate sqlSession;
-   
-   public PlaceDaoImp() {
-	   
-   }
+	private SqlSessionTemplate sqlSession;
 
-@Override
-public int countPlace() {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	public PlaceDaoImp() {
 
-@Override
-public List<PlaceDTO> list(PageDTO pv) {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-@Override
-public void insertPlace(PlaceDTO dto) {
-	// TODO Auto-generated method stub
+	}
 	
-}
+	public void setSqlSession(SqlSessionTemplate sqlSession) {
+		this.sqlSession = sqlSession;
+	}
 
-@Override
-public void updatePlace(PlaceDTO dto) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public int countPlace() {
+		return sqlSession.selectOne("place.count");
+	}
 
-@Override
-public void deletePlace(int num) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public List<PlaceDTO> list(PageDTO pv) {
+		return sqlSession.selectList("place.list", pv);
+	}
+//
+//	@Override
+//	public void insertPlace(PlaceDTO dto) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	@Override
+//	public void updatePlace(PlaceDTO dto) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	@Override
+//	public void deletePlace(int placeNum) {
+//		// TODO Auto-generated method stub
+//
+//	}
 }//end class
